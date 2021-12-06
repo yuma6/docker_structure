@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  # back:
+  #   build: ./back
+  #   command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  #   ports:
+  #     - '3000:3000'
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - ./back:/myapp
+  #     - bundle:/usr/local/bundle
+  #   tty: true
+  #   stdin_open: true
+
+  # db:
+  #   image: postgres:14.1-alpine
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 'pass'
+  #     POSTGRES_DB: 'pg'
+  #     PGDATA: /var/lib/postgresql/data/pgdata
+  #   ports:
+  #     - 5432:5432
+  #   container_name: postgres-db
+  #   volumes:
+  #     - ./db/postgres:/var/lib/postgresql/data
+  #     - ./db/logs:/var/log
+
+  front:
+    build: ./front
+    volumes:
+      - ./:/app
+    ports:
+      - '8080:8080'
+    tty: true
+    stdin_open: true
+
+# volumes:
+  # postgres_data:
+  # bundle:
+  # node_modules:
