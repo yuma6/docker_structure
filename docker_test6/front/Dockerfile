@@ -1,3 +1,3 @@
-FROM node:16.13.1-slim
+FROM node:14.17.1-alpine
 WORKDIR /app
 RUN yarn global add @vue/cli
